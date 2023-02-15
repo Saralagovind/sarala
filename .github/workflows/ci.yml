@@ -16,6 +16,17 @@ jobs:
       - name: setup-msbuild
         uses: microsoft/setup-msbuild@v1.3.1
       
-      - name: 
+      - name: restore my nuget package from solution
+        run: nuget restore WebApplication/WebApplication.sln
+      
+      - name: build my code using msbuild
+        run: msbuild WebApplication/WebApplication.sln /p:Configuration=Release /p:DeployTarget=Package /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:DeployOnBuild=true
+        
+      - name: upload my build artifacts
+        uses: actions/upload-artifact@v3.1.2
+        with:
+          name: buildartifact
+          path: '**/obj/Release/Package/**'
+
         
   
