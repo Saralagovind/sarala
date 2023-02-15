@@ -1,0 +1,15 @@
+name: apache tomcat
+run-name: ci part 
+
+on:
+  push:
+    - master
+     
+jobs:
+  build:
+    run on: windows-2019
+    
+    steps:
+    - name:build
+      uses:actions/checkout
+  
