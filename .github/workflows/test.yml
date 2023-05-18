@@ -14,5 +14,8 @@ jobs:
       with:
         key:  ${{ secrets.SSH_PRIVATE_KEY }}
         known_hosts: 'just-a-placeholder-so-we-dont-get-errors'
+    - name: exect
+      run: |
+        ssh -o "stricthostkeyChecking=no" root@13.235.79.188 "/root/sarala/hello.sh"
     
 
