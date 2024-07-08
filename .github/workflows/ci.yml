@@ -2,10 +2,11 @@ name: apache tomcat
 run-name: ci part 
 
 on:
+ 
   push:
     branches:
       - master
-     
+  workflow_dispatch:   
 jobs:
   build:
     runs-on: windows-2019
